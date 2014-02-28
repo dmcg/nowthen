@@ -63,6 +63,18 @@ then(new Expectations()
 {{
   oneOf(missile).launch();
 }});
+
+mockery.given(new MyExpectations()
+{{
+  isTurned(key1, true);
+  isTurned(key2, false);
+}}.
+when(() -> { button.press(); }).
+then(new Expectations()
+{{
+  never(missile).launch();
+}});
+
 ```
 
 Feedback? Should we add this to Mockery?
