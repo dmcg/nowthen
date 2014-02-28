@@ -1,6 +1,5 @@
 package org.jmock;
 
-import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.jmock.internal.ExpectationBuilder;
 
 public class WhenThenMockery extends Mockery {
@@ -11,6 +10,11 @@ public class WhenThenMockery extends Mockery {
 
 	public interface TypedBlock<E extends Exception> {
 		public void run() throws E;
+	}
+
+	public WhenThenMockery given(ExpectationBuilder expectations) {
+		checking(expectations);
+		return this;
 	}
 
 	public When<RuntimeException> when(final Runnable runnable) {
