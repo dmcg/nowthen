@@ -31,15 +31,15 @@ public class WhenThenMockery extends JUnitRuleMockery {
 		return given(x);
 	}
 
-	public <E extends Exception> When<E> when(Block<E> block) {
-		return new When<>(block);
+	public <E extends Exception> Then<E> when(Block<E> block) {
+		return new Then<>(block);
 	}
 
-	public class When<E extends Exception> {
+	public class Then<E extends Exception> {
 
 		private final Block<E> block;
 
-		private When(Block<E> block) {
+		private Then(Block<E> block) {
 			this.block = block;
 		}
 
